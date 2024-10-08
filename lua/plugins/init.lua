@@ -38,6 +38,9 @@ return {
   },
   {
     "APZelos/blamer.nvim",
+    config = function()
+      vim.g.blamer_enabled = true
+    end,
     lazy = false,
   },
   { "wakatime/vim-wakatime", lazy = false },
@@ -51,14 +54,16 @@ return {
   {
     "HiPhish/nvim-ts-rainbow2",
   },
-
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+      },
+    },
+  },
 }
