@@ -45,13 +45,6 @@ return {
   },
   { "wakatime/vim-wakatime", lazy = false },
   {
-    "supermaven-inc/supermaven-nvim",
-    lazy = false,
-    config = function()
-      require("supermaven-nvim").setup {}
-    end,
-  },
-  {
     "HiPhish/nvim-ts-rainbow2",
   },
   {
