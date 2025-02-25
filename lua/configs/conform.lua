@@ -7,6 +7,12 @@ local options = {
     javascript = { "prettier" },
     typescriptreact = { "prettier" },
     typescript = { "prettier" },
+    cpp = { "clang_format" },
+    c = { "clang_format" },
+    go = { "gofmt" },
+    -- markdown = { "prettier" },
+    -- json = { "prettier" },
+    -- yaml = { "prettier" },
   },
 
   -- format_on_save = {
