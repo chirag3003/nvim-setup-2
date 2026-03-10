@@ -1,24 +1,25 @@
--- load defaults i.e lua_lsp
+-- Load NvChad LSP defaults (handles on_attach, on_init, capabilities, and diagnostic config)
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
+-- List of LSP servers to enable
+local servers = { "html", "cssls", "ts_ls", "dockerls", "eslint", "gopls", "tailwindcss", "emmet_language_server", "clangd", "pyright" }
 
--- EXAMPLE
-local servers = { "html", "cssls", "ts_ls", "dockerls", "eslint", "gopls", "tailwindcss", "emmet_language_server", "clangd", "pyright"}
-local nvlsp = require "nvchad.configs.lspconfig"
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
+-- Enable each server using the modern vim.lsp API (Neovim 0.11+)
+for _, server in ipairs(servers) do
+  vim.lsp.enable(server)
 end
 
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
+-- Optional: Customize individual servers if needed
+-- Example: Configure TypeScript with custom settings
+-- vim.lsp.config("ts_ls", {
+--   settings = {
+--     typescript = {
+--       inlayHints = {
+--         includeInlayParameterNameHints = "all",
+--         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+--         includeInlayFunctionLikeReturnTypeHints = true,
+--         includeInlayEnumMemberValueHints = true,
+--       },
+--     },
+--   },
+-- })
